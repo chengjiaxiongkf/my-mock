@@ -20,8 +20,6 @@
 
 <style lang="less">
     body{
-        display: flex;
-        flex-direction: column;
         font-size: 14px;
         margin:0;padding:0;
         height: auto;

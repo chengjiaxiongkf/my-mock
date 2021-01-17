@@ -1,12 +1,16 @@
 <template>
     <div class="top-body">
-        <div>
-            <img src="../../assets/log.png" width="64" height="64"/>
+        <div class="top-log">
+            <img src="@/assets/log.png" width="64" height="64"/>
+            <label><b>WEB</b></label>
         </div>
-        <div>
-            <nav>
-                <span v-for="item in navs" :key="item.name">{{item.name}}</span>
-            </nav>
+        <div class="nav">
+            <span v-for="(item,index) in navs" :key="index" tabIndex="index">
+                <router-link :to="item.url">
+                    <img :src="item.imgSrc" alt="图片加载失败" width="48" height="48"/>
+                    <label>{{item.name}}</label>
+                </router-link>
+            </span>
         </div>
     </div>
 </template>
@@ -17,36 +21,92 @@
     data() {
       return {
         navs: [{
-          name: '尼玛'
-        },{
-          name: '尼玛'
-        },{
-          name: '尼玛'
-        },{
-          name: '尼玛'
-        }]
+          name: 'Kubernates',
+          url: '',
+          imgSrc: require('@/assets/menu-icon/k8s.png'),
+        }, {
+          name: 'Docker',
+          url: '',
+          imgSrc: require('@/assets/menu-icon/docker.png'),
+        }, {
+          name: 'Java',
+          url: '',
+          imgSrc: require('@/assets/menu-icon/java.png'),
+        }, {
+          name: 'Redis',
+          url: '',
+          imgSrc: require('@/assets/menu-icon/redis.png'),
+        }, {
+          name: 'Kafka',
+          url: '',
+          imgSrc: require('@/assets/menu-icon/kafka.png'),
+        }, {
+          name: 'Mysql',
+          url: '',
+          imgSrc: require('@/assets/menu-icon/mysql.png'),
+        }, {
+          name: 'DeveloperTools',
+          url: '',
+          imgSrc: require('@/assets/menu-icon/devTool.png'),
+        }, {
+          name: 'Love menu',
+          url: '/lovemenu',
+          imgSrc: require('@/assets/menu-icon/loveMenu.png'),
+        }
+        ]
       }
-    }
+    },
+    method: {}
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     .top-body {
-        flex-direction:row;
-        flex-wrap: nowrap;
+        border-bottom: gainsboro 1px solid;
+        display: flex;
+        align-items: center;
         height: 6.2rem;
         width: 100%;
-        background-color: black;
-        /*margin: 0 87rem 0 0;*/
-        nav {
-            background-color: red;
-            /*height: 100%;*/
-            /*text-align: center;*/
-            span{
+
+        .top-log {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-content: center;
+            font-size: 16px;
+            color: #d4237a;
+
+            label {
+                display: flex;
+                justify-content: center;
             }
         }
-        /*.log {*/
-        /*    padding: 0.5rem 0.5rem 0.5rem 0.5rem;*/
-        /*}*/
+
+        .nav {
+            display: flex;
+            align-items: flex-end;
+            align-content: space-between;
+            justify-content: space-evenly;
+            height: 100%;
+            width: 100%;
+
+            span {
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: flex-end;
+                height: 100%;
+                width: 100%;
+
+                label {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            span:hover {
+                background-color: gainsboro;
+            }
+        }
     }
 </style>
