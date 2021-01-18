@@ -1,13 +1,13 @@
 <template>
     <div class="top-body">
         <div class="top-log">
-            <img src="@/assets/log.png" width="64" height="64"/>
+            <img src="@/assets/log.png"/>
             <label><b>WEB</b></label>
         </div>
         <div class="nav">
             <span v-for="(item,index) in navs" :key="index" tabIndex="index">
-                <router-link :to="item.url">
-                    <img :src="item.imgSrc" alt="图片加载失败" width="48" height="48"/>
+                <router-link :to="{name:'lovemenu'}">
+                    <img :src="item.imgSrc" alt="图片加载失败"/>
                     <label>{{item.name}}</label>
                 </router-link>
             </span>
@@ -75,7 +75,11 @@
             align-content: center;
             font-size: 16px;
             color: #d4237a;
-
+            margin: 0 0 0 2rem;
+            img{
+                height: 64px;
+                width: 64px;
+            }
             label {
                 display: flex;
                 justify-content: center;
@@ -97,10 +101,12 @@
                 justify-content: flex-end;
                 height: 100%;
                 width: 100%;
-
-                label {
+                img{
+                    height: 32px;
+                    width: 32px;
+                }
+                img,label {
                     display: flex;
-                    justify-content: center;
                 }
             }
 
